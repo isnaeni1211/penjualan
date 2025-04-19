@@ -37,7 +37,7 @@ private DefaultTableModel tabmode;
         String cariitem=txtcari.getText();
         
         try {
-            String sql = "SELECT * FROM pelanggan where id like '%"+cariitem+"%' or nmplgn like '%"+cariitem+"%' order by id asc";
+            String sql = "SELECT * FROM pelanggan1 where id like '%"+cariitem+"%' or nmplgn like '%"+cariitem+"%' order by id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -179,14 +179,12 @@ private DefaultTableModel tabmode;
                     .addComponent(txttelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(58, 58, 58))
+                    .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        bsimpan.setBackground(new java.awt.Color(51, 204, 0));
+        bsimpan.setBackground(new java.awt.Color(255, 255, 255));
         bsimpan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bsimpan.setText("Simpan");
         bsimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +262,7 @@ private DefaultTableModel tabmode;
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Data Pelanggan");
 
-        bubah.setBackground(new java.awt.Color(255, 255, 0));
+        bubah.setBackground(new java.awt.Color(255, 255, 255));
         bubah.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bubah.setText("Ubah");
         bubah.addActionListener(new java.awt.event.ActionListener() {
@@ -273,8 +271,8 @@ private DefaultTableModel tabmode;
             }
         });
 
+        bhapus.setBackground(new java.awt.Color(255, 255, 255));
         bhapus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bhapus.setForeground(new java.awt.Color(255, 0, 0));
         bhapus.setText("Hapus");
         bhapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,8 +280,8 @@ private DefaultTableModel tabmode;
             }
         });
 
+        bbatal.setBackground(new java.awt.Color(255, 255, 255));
         bbatal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bbatal.setForeground(new java.awt.Color(255, 0, 255));
         bbatal.setText("Batal");
         bbatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,8 +289,8 @@ private DefaultTableModel tabmode;
             }
         });
 
+        bkeluar.setBackground(new java.awt.Color(255, 255, 255));
         bkeluar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bkeluar.setForeground(new java.awt.Color(51, 51, 255));
         bkeluar.setText("Keluar");
         bkeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -363,7 +361,7 @@ private DefaultTableModel tabmode;
         }else if(rperempuan.isSelected()){
             jenis = "Perempuan";
         }
-        String sql = "insert into pelanggan values (?,?,?,?,?)";
+        String sql = "insert into pelanggan1 values (?,?,?,?,?)";
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtid.getText());
@@ -392,7 +390,7 @@ private DefaultTableModel tabmode;
             jenis = "Perempuan";
         }
         try{
-            String sql = "update pelanggan set nmplgn=?,jenis=?,telepon=?,alamat=? where id='"+txtid.getText()+"'";
+            String sql = "update pelanggan1 set nmplgn=?,jenis=?,telepon=?,alamat=? where id='"+txtid.getText()+"'";
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtnm.getText());
             stat.setString(2, jenis);
@@ -414,7 +412,7 @@ private DefaultTableModel tabmode;
         // TODO add your handling code here:
         int ok = JOptionPane.showConfirmDialog(null,"hapus", "konfirmasi dialog",JOptionPane.YES_NO_OPTION);
         if (ok==0){
-            String sql = "delete from pelanggan where id='"+txtid.getText()+"'";
+            String sql = "delete from pelanggan1 where id='"+txtid.getText()+"'";
             try{
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();

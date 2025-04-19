@@ -39,7 +39,7 @@ private DefaultTableModel tabmode;
         String cariitem=txtcari.getText();
         
         try {
-            String sql = "SELECT * FROM kasir where id_ksr like '%"+cariitem+"%' or nmksr like '%"+cariitem+"%' order by id_ksr asc";
+            String sql = "SELECT * FROM kasir1 where id_ksr like '%"+cariitem+"%' or nmksr like '%"+cariitem+"%' order by id_ksr asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -432,7 +432,7 @@ private DefaultTableModel tabmode;
         }else if(rperempuan.isSelected()){
             jenis = "Perempuan";
         }
-        String sql = "insert into kasir values (?,?,?,?,?,?,?)";
+        String sql = "insert into kasir1 values (?,?,?,?,?,?,?)";
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtid.getText());
@@ -463,7 +463,7 @@ private DefaultTableModel tabmode;
             jenis = "Perempuan";
         }
         try{
-            String sql = "update kasir set nmksr=?,jenis_ksr=?,agama_ksr=?,telepon_ksr=?,alamat_ksr=?,password=? where id_ksr='"+txtid.getText()+"'";
+            String sql = "update kasir1 set nmksr=?,jenis_ksr=?,agama_ksr=?,telepon_ksr=?,alamat_ksr=?,password=? where id_ksr='"+txtid.getText()+"'";
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtnm.getText());
             stat.setString(2, jenis);
@@ -487,7 +487,7 @@ private DefaultTableModel tabmode;
         // TODO add your handling code here:
         int ok = JOptionPane.showConfirmDialog(null,"hapus", "konfirmasi dialog",JOptionPane.YES_NO_OPTION);
         if (ok==0){
-            String sql = "delete from kasir where id_ksr='"+txtid.getText()+"'";
+            String sql = "delete from kasir1 where id_ksr='"+txtid.getText()+"'";
             try{
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();
